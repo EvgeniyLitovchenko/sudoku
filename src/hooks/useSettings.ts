@@ -1,21 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export type Difficulty = 'Easy' | 'Medium' | 'Hard';
 
 export type DifficultySettings = {
-  size: number;     
-  maxAttempts: number | null; 
+  size: number;
+  maxAttempts: number | null;
 };
 
 const difficultyMap: Record<Difficulty, DifficultySettings> = {
-  Easy: { size: 3, maxAttempts: null },
+  Easy: { size: 4, maxAttempts: null },
   Medium: { size: 9, maxAttempts: 6 },
-  Hard: { size: 12, maxAttempts: 3 },
+  Hard: { size: 16, maxAttempts: 3 },
 };
 
 export const useSettings = () => {
-  const [difficulty, setDifficulty] = useState<Difficulty>('Easy');
-  const currentSettings = difficultyMap[difficulty];
+  const storedDifficulty = localStorage.getItem('sudokuDifficulty') as Difficulty | null;
+  const [difficulty, setDifficulty] = useState<Difficulty>(storedDifficulty ?? 'Easy');
+
+  useEffect(() => {
+    localStorage.setItem('difficulty', difficulty);
+  }, [difficulty]);
+
+  const currentSettings = difficultyMap[difficulty] ?? difficultyMap['Easy'];
 
   return {
     difficulty,

@@ -1,0 +1,33 @@
+.win {
+  color: #22c55e;
+    font-family: Arial, sans-serif;
+}
+
+.lose {
+  color: #ef4444;
+  font-family: Arial, sans-serif;
+}
+p{
+  color: #e5e7eb;
+  font-family: Arial, sans-serif;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  background: #1e293b;
+  color: #e5e7eb;
+  border: none;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+}
+
+.actions button:hover {
+  background: #334155;
+}
