@@ -1,0 +1,22 @@
+.checkBtn {
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #43598d;
+  color: white;
+  transition: all 0.2s ease;
+  margin: 10px;
+  width: 200px;
+  height: 60px;
+}
+.checkBtn:hover {
+  background-color: #6888d2;
+  transform: scale(1.05);
+}
+
+.checkBtn:active {
+  transform: scale(0.98);
+}

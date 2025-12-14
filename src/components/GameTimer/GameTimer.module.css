@@ -8,6 +8,8 @@
 
   background-color: #020617;
   border: 1px solid #1e293b;
+  margin: 20px;
+  font-family: Arial, sans-serif;
 }
 
 .label {
@@ -15,6 +17,7 @@
   color: #94a3b8;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+
 }
 
 .value {

@@ -1,12 +1,10 @@
 .board {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  grid-template-rows: repeat(9, 1fr);
-
+  gap: 2px;
   width: 100%;
-  max-width: 360px;
+  max-width: 600px;
   aspect-ratio: 1 / 1;
-
   border: 2px solid #e5e7eb;
   background-color: #020617;
+  box-sizing: border-box;
 }
