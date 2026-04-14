@@ -1,35 +1,64 @@
-import { useState } from 'react';
-import type { Board } from './useGame';
+import { useState, useEffect } from "react";
+import type { Board } from "./useGame";
 
-export const useCheckAnswer = () => {
-  const [attemptsLeft, setAttemptsLeft] = useState<number | null>(null);
+export type CheckResult = "win" | "lose" | "continue";
 
-  const checkAnswer = (board: Board, maxAttempts: number | null): boolean => {
+export const useCheckAnswer = (maxAttempts: number | null) => {
+  const [attemptsLeft, setAttemptsLeft] = useState<number | null>(maxAttempts);
+
+  useEffect(() => {
+    setAttemptsLeft(maxAttempts);
+  }, [maxAttempts]);
+
+  const checkAnswer = (board: Board): CheckResult => {
     const size = board.length;
+    const boxSize = Math.sqrt(size);
 
-    for (let i = 0; i < size; i++) {
-      const rowSet = new Set<number>();
-      const colSet = new Set<number>();
-      for (let j = 0; j < size; j++) {
-        const rowVal = board[i][j];
-        const colVal = board[j][i];
-        if (rowVal === null || colVal === null) return false;
-        if (rowSet.has(rowVal) || colSet.has(colVal)) return false;
-        rowSet.add(rowVal);
-        colSet.add(colVal);
+    for (let row = 0; row < size; row++) {
+      const seen = new Set<number>();
+      for (let col = 0; col < size; col++) {
+        const val = board[row][col];
+        if (!val || val < 1 || val > size || seen.has(val)) return handleWrong();
+        seen.add(val);
       }
     }
 
-    if (maxAttempts !== null) {
-      setAttemptsLeft(prev => (prev === null ? maxAttempts - 1 : prev - 1));
+    for (let col = 0; col < size; col++) {
+      const seen = new Set<number>();
+      for (let row = 0; row < size; row++) {
+        const val = board[row][col];
+        if (!val || val < 1 || val > size || seen.has(val)) return handleWrong();
+        seen.add(val);
+      }
     }
 
-    return true;
+    for (let boxRow = 0; boxRow < boxSize; boxRow++) {
+      for (let boxCol = 0; boxCol < boxSize; boxCol++) {
+        const seen = new Set<number>();
+        for (let r = 0; r < boxSize; r++) {
+          for (let c = 0; c < boxSize; c++) {
+            const val = board[boxRow * boxSize + r][boxCol * boxSize + c];
+            if (!val || val < 1 || val > size || seen.has(val)) return handleWrong();
+            seen.add(val);
+          }
+        }
+      }
+    }
+
+    return "win";
   };
 
-  return {
-    attemptsLeft,
-    setAttemptsLeft,
-    checkAnswer,
+  const handleWrong = (): CheckResult => {
+    if (attemptsLeft === null) return "continue";
+    if (attemptsLeft <= 1) {
+      setAttemptsLeft(0);
+      return "lose";
+    }
+    setAttemptsLeft(prev => (prev as number) - 1);
+    return "continue";
   };
+
+  const resetAttempts = () => setAttemptsLeft(maxAttempts);
+
+  return { attemptsLeft, checkAnswer, resetAttempts };
 };

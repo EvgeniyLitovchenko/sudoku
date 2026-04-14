@@ -8,3 +8,14 @@
   background-color: #020617;
   box-sizing: border-box;
 }
+.cellWrapper {
+  border: 1px solid #1e293b;
+}
+
+.cellWrapper.borderRight {
+  border-right: 3px solid #94a3b8;
+}
+
+.cellWrapper.borderBottom {
+  border-bottom: 3px solid #94a3b8;
+}
