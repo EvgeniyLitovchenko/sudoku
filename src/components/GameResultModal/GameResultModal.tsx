@@ -9,7 +9,7 @@ type Props = {
   attemptsLeft: number | null;
   onRestart: () => void;
   onNext: () => void;
-  onContinue: () => void; // новий callback для "continue"
+  onContinue: () => void; 
 };
 
 const GameResultModal = ({

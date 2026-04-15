@@ -1,16 +1,23 @@
 .win {
   color: #22c55e;
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 .lose {
   color: #ef4444;
   font-family: Arial, sans-serif;
 }
-p{
+
+.continue {
+  color: #FFB355;
+  font-family: Arial, sans-serif;
+}
+
+p {
   color: #e5e7eb;
   font-family: Arial, sans-serif;
 }
+
 .actions {
   display: flex;
   gap: 12px;
