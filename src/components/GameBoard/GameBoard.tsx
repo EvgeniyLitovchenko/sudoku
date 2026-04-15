@@ -6,6 +6,12 @@ type GameBoardProps = {
   size: number;
 };
 
+/**
+ * Компонент GameBoard для відображення ігрового поля судоку.
+ * @param {any} {children
+ * @param {any} size}:GameBoardProps
+ * @returns {any}
+ */
 const GameBoard = ({ children, size }: GameBoardProps) => {
   const sqrt = Math.sqrt(size);
 

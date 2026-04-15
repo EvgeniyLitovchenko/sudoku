@@ -3,6 +3,11 @@ import type { Board } from "./useGame";
 
 export type CheckResult = "win" | "lose" | "continue";
 
+/**
+ * Хук useCheckAnswer для перевірки відповіді на судоку та відстеження кількості спроб.
+ * @param {any} maxAttempts:number|null
+ * @returns {any}
+ */
 export const useCheckAnswer = (maxAttempts: number | null) => {
   const [attemptsLeft, setAttemptsLeft] = useState<number | null>(maxAttempts);
 

@@ -14,6 +14,10 @@ const schema = yup.object({
   difficulty: yup.string().oneOf(['Easy', 'Medium', 'Hard']).required(),
 }).required();
 
+/**
+ * Компонент SettingsPage для відображення сторінки налаштувань гри в судоку.
+ * @returns {any}
+ */
 const SettingsPage: React.FC = () => {
   const navigate = useNavigate();
 

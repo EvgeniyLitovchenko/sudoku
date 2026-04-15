@@ -6,6 +6,14 @@ type Props = {
   overlay?: boolean;
 };
 
+/**
+ * Компонент CookieBanner для відображення банера з інформацією про використання cookies.
+ * @param {any} {buttonText="Acceptall"
+ * @param {any} declineButtonText="Decline"
+ * @param {any} overlay=false
+ * @param {any} }:Props
+ * @returns {any}
+ */
 const CookieBanner = ({
   buttonText = "Accept all",
   declineButtonText = "Decline",

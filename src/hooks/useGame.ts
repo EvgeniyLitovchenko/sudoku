@@ -59,6 +59,11 @@ const generateSudokuBoard = (size: number): Board => {
   return board;
 };
 
+/**
+ * Хук useGame для створення та керування грою в судоку.
+ * @param {any} settings:DifficultySettings
+ * @returns {any}
+ */
 export const useGame = (settings: DifficultySettings) => {
   const [board, setBoard] = useState<CellValue[][]>([]);
   const [fixedCells, setFixedCells] = useState<boolean[][]>([]);

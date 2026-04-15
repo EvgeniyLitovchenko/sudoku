@@ -4,6 +4,11 @@ type GameTimerProps = {
   time?: string;
 };
 
+/**
+ * Компонент GameTimer для відображення таймера гри.
+ * @param {any} {time="00:00"}:GameTimerProps
+ * @returns {any}
+ */
 const GameTimer = ({ time = "00:00" }: GameTimerProps) => {
   return (
     <div className={styles.timer}>

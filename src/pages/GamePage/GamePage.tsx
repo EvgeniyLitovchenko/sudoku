@@ -13,6 +13,10 @@ import { useCheckAnswer } from "../../hooks/useCheckAnswer";
 import { useTimer } from "../../hooks/useTimer";
 import { useFixResult } from "../../hooks/useFixResult";
 
+/**
+ * Компонент GamePage для відображення основної сторінки гри в судоку, включаючи ігрове поле, таймер та модальне вікно результатів.
+ * @returns {any}
+ */
 const GamePage = () => {
   const { currentSettings } = useSettings();
   if (!currentSettings) return null;

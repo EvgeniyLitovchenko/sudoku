@@ -13,6 +13,10 @@ const difficultyMap: Record<Difficulty, DifficultySettings> = {
   Hard: { size: 16, maxAttempts: 3 },
 };
 
+/**
+ * Хук useSettings для керування налаштуваннями гри та збереження вибору складності в localStorage.
+ * @returns {any}
+ */
 export const useSettings = () => {
   const storedDifficulty = localStorage.getItem('sudokuDifficulty') as Difficulty | null;
   const [difficulty, setDifficulty] = useState<Difficulty>(storedDifficulty ?? 'Easy');

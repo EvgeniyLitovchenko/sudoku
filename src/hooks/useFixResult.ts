@@ -9,6 +9,10 @@ export type GameResult = {
 
 const LOCAL_STORAGE_KEY = 'sudoku_results';
 
+/**
+ * Хук useFixResult для збереження та отримання результатів гри в localStorage.
+ * @returns {any}
+ */
 export const useFixResult = () => {
   const saveResult = useCallback((result: GameResult) => {
     const existing: GameResult[] = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');

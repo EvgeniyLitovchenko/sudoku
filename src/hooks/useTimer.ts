@@ -1,5 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 
+/**
+ * Хук useTimer для відстеження часу гри в судоку.
+ * @param {any} start:boolean=false
+ * @returns {any}
+ */
 export const useTimer = (start: boolean = false) => {
   const [seconds, setSeconds] = useState(0);
   const timerRef = useRef<number | null>(null);

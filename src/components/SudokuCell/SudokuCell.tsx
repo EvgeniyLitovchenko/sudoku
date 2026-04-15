@@ -8,6 +8,16 @@ type SudokuCellProps = {
   isSelected?: boolean;
 };
 
+/**
+ * Компонент SudokuCell для відображення окремої клітинки судоку.
+ * @param {any} {value=""
+ * @param {any} variant="editable"
+ * @param {any} onChange
+ * @param {any} onClick
+ * @param {any} isSelected=false
+ * @param {any} }:SudokuCellProps
+ * @returns {any}
+ */
 const SudokuCell = ({
   value = "",
   variant = "editable",

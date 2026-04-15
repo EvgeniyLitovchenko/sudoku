@@ -5,6 +5,11 @@ import type { GameResult } from "../../hooks/useFixResult";
 
 type ResultTableProps = {};
 
+/**
+ * Компонент ResultTable для відображення таблиці результатів гри.
+ * @param {any} {}:ResultTableProps
+ * @returns {any}
+ */
 const ResultTable = ({}: ResultTableProps) => {
   const { getResults } = useFixResult();
   const [results, setResults] = useState<GameResult[]>([]);

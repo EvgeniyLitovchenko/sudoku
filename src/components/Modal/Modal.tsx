@@ -9,6 +9,13 @@ type ModalProps = {
   children: ReactNode;
 };
 
+/**
+ * Компонент Modal для відображення модального вікна.
+ * @param {any} {isOpen
+ * @param {any} onClose
+ * @param {any} children}:ModalProps
+ * @returns {any}
+ */
 const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   if (!isOpen) return null;
 

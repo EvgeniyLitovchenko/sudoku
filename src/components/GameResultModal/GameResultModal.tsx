@@ -12,6 +12,19 @@ type Props = {
   onContinue: () => void; 
 };
 
+/**
+ * Компонент GameResultModal для відображення результату гри (перемога, поразка або продовження).
+ * @param {any} {isOpen
+ * @param {any} win
+ * @param {any} time
+ * @param {any} difficulty
+ * @param {any} attemptsLeft
+ * @param {any} onRestart
+ * @param {any} onNext
+ * @param {any} onContinue
+ * @param {any} }:Props
+ * @returns {any}
+ */
 const GameResultModal = ({
   isOpen,
   win,
